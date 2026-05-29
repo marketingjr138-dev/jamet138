@@ -1,0 +1,100 @@
+{
+  "version": "1.0.0",
+  "pin": "7788",
+  "brandName": "JAMET138 GUIDE",
+  "tagline": "Daftar • Deposit QRIS • Transfer • Withdraw",
+  "heroTitle": "Panduan cepat member JAMET138",
+  "heroSubtitle": "Tonton video singkat dari HP, ikuti langkahnya, lalu hubungi admin kalau butuh bantuan.",
+  "logo": "assets/logo-jamet138.png",
+  "banner": "",
+  "daftarLink": "#",
+  "loginLink": "#",
+  "adminLink": "https://cutt.ly/adminresmi",
+  "guides": {
+    "daftar": [
+      "Klik tombol Daftar Sekarang.",
+      "Isi username, password, nomor WhatsApp, dan data rekening dengan benar.",
+      "Pastikan semua data sesuai sebelum submit.",
+      "Setelah akun aktif, login menggunakan username dan password."
+    ],
+    "deposit": [
+      "Login ke akun JAMET138.",
+      "Pilih menu Deposit.",
+      "Pilih metode QRIS atau tujuan pembayaran yang tersedia.",
+      "Transfer sesuai nominal yang diminta.",
+      "Upload bukti transfer jika diminta, lalu tunggu saldo masuk."
+    ],
+    "transfer": [
+      "Login dan pastikan saldo utama sudah masuk.",
+      "Pilih menu Transfer.",
+      "Pilih dari Saldo Utama ke provider/game tujuan.",
+      "Masukkan nominal transfer.",
+      "Klik transfer, lalu buka game tujuan."
+    ],
+    "withdraw": [
+      "Pastikan saldo sudah berada di saldo utama.",
+      "Kalau saldo masih di provider/game, transfer balik dulu ke saldo utama.",
+      "Pilih menu Withdraw.",
+      "Masukkan nominal penarikan sesuai ketentuan.",
+      "Pastikan data rekening benar dan sesuai akun.",
+      "Submit withdraw, lalu tunggu proses dari sistem/admin."
+    ],
+    "promo": [
+      "Cek promo aktif sebelum deposit.",
+      "Baca syarat dan ketentuan promo.",
+      "Hubungi admin kalau ingin klaim bonus tertentu.",
+      "Pastikan username benar saat klaim promo."
+    ]
+  },
+  "media": {
+    "daftar": {
+      "image": "",
+      "video": ""
+    },
+    "deposit": {
+      "image": "",
+      "video": ""
+    },
+    "transfer": {
+      "image": "",
+      "video": ""
+    },
+    "withdraw": {
+      "image": "",
+      "video": ""
+    },
+    "promo": {
+      "image": "",
+      "video": ""
+    }
+  },
+  "faq": [
+    [
+      "Kenapa saldo belum masuk?",
+      "Pastikan nominal dan tujuan transfer benar. Kalau masih belum masuk, kirim bukti transfer ke admin."
+    ],
+    [
+      "Bisa deposit pakai QRIS?",
+      "Bisa, ikuti panduan Deposit QRIS di halaman ini."
+    ],
+    [
+      "Kenapa saldo belum ada di game?",
+      "Saldo biasanya masih di saldo utama. Transfer dulu ke provider/game tujuan."
+    ],
+    [
+      "Bagaimana cara withdraw?",
+      "Pastikan saldo ada di saldo utama, lalu masuk menu Withdraw dan ikuti langkah penarikan."
+    ],
+    [
+      "Withdraw pending harus bagaimana?",
+      "Cek data rekening dan hubungi admin dengan menyertakan username serta nominal withdraw."
+    ],
+    [
+      "Kalau lupa password bagaimana?",
+      "Hubungi admin dan siapkan username atau nomor WhatsApp terdaftar."
+    ]
+  ],
+  "gasApiUrl": "",
+  "staticVideoMode": true,
+  "videoPreload": true
+}

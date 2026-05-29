@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#063d18" />
+  <meta name="description" content="Panduan member JAMET138: cara daftar, deposit QRIS, transfer saldo game, withdraw, dan info promo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Panduan Member JAMET138" />
+  <meta property="og:description" content="Tutorial cara daftar, deposit QRIS, transfer saldo game, withdraw, dan promo member." />
+  <meta property="og:image" content="assets/preview-share.png" />
+  <meta property="og:site_name" content="Panduan Member JAMET138" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Panduan Member JAMET138" />
+  <meta name="twitter:description" content="Tutorial cara daftar, deposit QRIS, transfer saldo game, withdraw, dan promo member." />
+  <meta name="twitter:image" content="assets/preview-share.png" />
+  <title>Panduan Member JAMET138</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icon-180.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="JAMET138" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="mystic-bg" aria-hidden="true"></div>
+  <div id="app">
+    <header class="site-header">
+      <div class="brand">
+        <img id="brandLogo" src="assets/logo-jamet138.png" alt="Logo" />
+        <div class="brand-text">
+          <strong id="brandName">JAMET138 GUIDE</strong>
+          <span id="brandTagline">Daftar • Deposit QRIS • Transfer • Withdraw</span>
+        </div>
+      </div>
+      <div class="header-actions"><button id="installPwaBtn" class="install-btn" type="button" hidden>Install</button></div>
+    </header>
+
+    <main>
+      <section class="hero-card">
+        <div class="hero-copy">
+          <p class="eyebrow">Panduan resmi member baru</p>
+          <h1 id="heroTitle">Panduan cepat member JAMET138</h1>
+          <p id="heroSubtitle">Tonton video singkat dari HP, ikuti langkahnya, lalu hubungi admin kalau butuh bantuan.</p>
+          <div class="cta-row">
+            <a id="btnDaftar" class="btn primary" href="#" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <a id="btnLogin" class="btn soft" href="#" target="_blank" rel="noopener">Login</a>
+            <a id="btnAdmin" class="btn ghost" href="#" target="_blank" rel="noopener">Chat Admin</a>
+          </div>
+        </div>
+</section>
+      <section class="section guide-section">
+        <div class="section-head">
+          <p class="eyebrow">Pilih panduan</p>
+          <h2>Yang sering bikin member bingung</h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Menu panduan member">
+          <button class="tab active" data-tab="daftar">Daftar</button>
+          <button class="tab" data-tab="deposit">Deposit QRIS</button>
+          <button class="tab" data-tab="transfer">Transfer Game</button>
+          <button class="tab" data-tab="withdraw">Withdraw</button>
+          <button class="tab" data-tab="promo">Promo</button>
+        </div>
+      </section>
+
+      <section id="videoTutorial" class="section media-section video-first-section">
+        <div class="section-head">
+          <p class="eyebrow">Video tutorial</p>
+          <h2 id="mediaTitle">Tutorial format HP</h2>
+          <p id="mediaDesc">Tonton video panduan singkat dulu. Langkah teks ada di bawah video.</p>
+        </div>
+        <div class="video-only-wrap">
+          <div class="phone-frame video-frame video-main-frame">
+            <video id="tutorialVideo" controls playsinline preload="metadata" loop controlsList="nodownload noplaybackrate" disablepictureinpicture>
+              <source src="" type="video/mp4" />
+              Browser kamu belum menjametg video.
+            </video>
+            <iframe id="tutorialDriveFrame" class="drive-video-frame" src="" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+            <div id="videoEmpty" class="media-empty">Video tutorial belum disetting.</div>
+            <div id="videoLoading" class="video-loading" hidden><span class="spinner"></span><b>Memuat video...</b><small>Mohon tunggu sebentar</small></div>
+            <div id="videoFallbackNote" class="video-fallback-note" hidden>Mode cadangan aktif. Kalau player terlihat berat, tunggu video selesai diproses Drive lalu refresh.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section guide-steps-section">
+        <div class="section-head compact">
+          <p class="eyebrow">Langkah detail</p>
+          <h2 id="guideStepTitle">Panduan tertulis</h2>
+        </div>
+        <article id="guideContent" class="guide-card"></article>
+      </section>
+
+      <section class="section promo-strip">
+        <div>
+          <p class="eyebrow">Butuh bantuan?</p>
+          <h2>Masih bingung? Langsung tanya admin.</h2>
+          <p>Gunakan tombol chat admin kalau saldo belum masuk, transfer game gagal, atau withdraw pending.</p>
+        </div>
+        <a id="btnAdminBottom" class="btn primary" href="#" target="_blank" rel="noopener">Chat Admin</a>
+      </section>
+
+      <section class="section faq-section">
+        <div class="section-head">
+          <p class="eyebrow">Bantuan cepat</p>
+          <h2>Pertanyaan yang sering muncul</h2>
+        </div>
+        <div id="faqList" class="faq-list"></div>
+      </section>
+
+      <footer class="private-footer">
+        <button type="button" class="copyright-admin" data-open-admin aria-label="Copyright">© 2026</button>
+      </footer>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navigasi cepat">
+      <button type="button" data-nav="home">Home</button>
+      <button type="button" data-nav-tab="daftar">Daftar</button>
+      <button type="button" data-nav-tab="deposit">Deposit</button>
+      <button type="button" data-nav-tab="transfer">Transfer</button>
+      <button type="button" data-nav-tab="withdraw">WD</button>
+      <button type="button" data-nav-tab="promo">Promo</button>
+    </nav>
+  </div>
+
+  <dialog id="pinDialog" class="modal">
+    <form method="dialog" class="modal-card small">
+      <h3>Akses Admin</h3>
+      <p class="muted">Masukkan PIN owner untuk edit konten website.</p>
+      <input id="pinInput" type="password" inputmode="numeric" placeholder="PIN owner" />
+      <div class="modal-actions">
+        <button value="cancel" class="btn ghost" type="submit">Batal</button>
+        <button id="submitPin" value="ok" class="btn primary" type="button">Masuk</button>
+      </div>
+      <p id="pinError" class="error"></p>
+      <p id="pinAlertInfo" class="alert-info"></p>
+    </form>
+  </dialog>
+
+  <dialog id="settingsDialog" class="modal">
+    <form method="dialog" class="modal-card settings-form">
+      <div class="modal-title">
+        <div>
+          <h3>Owner Settings</h3>
+          <p class="muted">Edit lokal untuk preview, lalu Push ke Google Sheet agar semua member ikut update.</p>
+        </div>
+        <button class="icon-btn" value="cancel">✕</button>
+      </div>
+
+      <div class="form-grid">
+        <label>Nama Brand <input id="setBrandName" /></label>
+        <label>Tagline <input id="setTagline" /></label>
+        <label>Judul Hero <input id="setHeroTitle" /></label>
+        <label>Subjudul Hero <textarea id="setHeroSubtitle"></textarea></label>
+        <label>Link Daftar <input id="setDaftar" placeholder="https://..." /></label>
+        <label>Link Login <input id="setLogin" placeholder="https://..." /></label>
+        <label>Link Chat Admin / Cutt.ly <input id="setAdmin" placeholder="https://cutt.ly/adminresmi atau https://wa.me/62..." /></label>
+        <label class="upload-card">Logo
+          <input id="setLogo" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setLogo">Belum ada logo</div>
+          <input class="upload-input" type="file" accept="image/*" data-upload-target="setLogo" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setLogo">Hapus Logo</button>
+        </label>
+        <label class="upload-card">Banner
+          <input id="setBanner" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setBanner">Belum ada banner</div>
+          <input class="upload-input" type="file" accept="image/*" data-upload-target="setBanner" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setBanner">Hapus Banner</button>
+        </label>
+        <label>Google Apps Script API URL <input id="setGasApi" placeholder="https://script.google.com/macros/s/xxx/exec" /></label>
+        <label>PIN Lama <input id="setPinOld" type="password" inputmode="numeric" placeholder="Wajib kalau mau ganti PIN" /></label>
+        <label>PIN Baru <input id="setPinNew" type="password" inputmode="numeric" placeholder="Kosongkan kalau tidak diganti" /></label>
+        <label>Ulangi PIN Baru <input id="setPinConfirm" type="password" inputmode="numeric" placeholder="Ulangi PIN baru" /></label>
+      </div>
+
+      <h4>Isi Panduan</h4>
+      <div class="form-grid">
+        <label>Cara Daftar <textarea id="setDaftarSteps"></textarea></label>
+        <label>Deposit QRIS <textarea id="setDepositSteps"></textarea></label>
+        <label>Transfer Saldo Game <textarea id="setTransferSteps"></textarea></label>
+        <label>Cara Withdraw <textarea id="setWithdrawSteps"></textarea></label>
+        <label>Promo <textarea id="setPromoSteps"></textarea></label>
+        <label>FAQ <textarea id="setFaq"></textarea></label>
+      </div>
+
+      <h4>Media Tutorial 9:16</h4>
+      <p class="muted">Upload dari galeri jadi mode utama. Link teknis disimpan otomatis di belakang layar. Input manual tidak wajib.</p>
+      <div class="form-grid">
+        <label class="upload-card">Gambar Daftar 9:16
+          <input id="setImgDaftar" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setImgDaftar">Belum ada file</div>
+          <input class="upload-input" type="file" accept="image/*" data-upload-target="setImgDaftar" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setImgDaftar">Hapus Gambar Daftar</button>
+        </label>
+        <label class="upload-card">Video Daftar 9:16 MP4
+          <input id="setVidDaftar" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setVidDaftar">Belum ada file</div>
+          <input class="upload-input" type="file" accept="video/mp4,video/*" data-upload-target="setVidDaftar" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setVidDaftar">Hapus Video Daftar</button>
+        </label>
+        <label class="upload-card">Gambar Deposit 9:16
+          <input id="setImgDeposit" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setImgDeposit">Belum ada file</div>
+          <input class="upload-input" type="file" accept="image/*" data-upload-target="setImgDeposit" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setImgDeposit">Hapus Gambar Deposit</button>
+        </label>
+        <label class="upload-card">Video Deposit 9:16 MP4
+          <input id="setVidDeposit" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setVidDeposit">Belum ada file</div>
+          <input class="upload-input" type="file" accept="video/mp4,video/*" data-upload-target="setVidDeposit" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setVidDeposit">Hapus Video Deposit</button>
+        </label>
+        <label class="upload-card">Gambar Transfer 9:16
+          <input id="setImgTransfer" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setImgTransfer">Belum ada file</div>
+          <input class="upload-input" type="file" accept="image/*" data-upload-target="setImgTransfer" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setImgTransfer">Hapus Gambar Transfer</button>
+        </label>
+        <label class="upload-card">Video Transfer 9:16 MP4
+          <input id="setVidTransfer" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setVidTransfer">Belum ada file</div>
+          <input class="upload-input" type="file" accept="video/mp4,video/*" data-upload-target="setVidTransfer" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setVidTransfer">Hapus Video Transfer</button>
+        </label>
+        <label class="upload-card">Gambar Withdraw 9:16
+          <input id="setImgWithdraw" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setImgWithdraw">Belum ada file</div>
+          <input class="upload-input" type="file" accept="image/*" data-upload-target="setImgWithdraw" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setImgWithdraw">Hapus Gambar Withdraw</button>
+        </label>
+        <label class="upload-card">Video Withdraw 9:16 MP4
+          <input id="setVidWithdraw" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setVidWithdraw">Belum ada file</div>
+          <input class="upload-input" type="file" accept="video/mp4,video/*" data-upload-target="setVidWithdraw" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setVidWithdraw">Hapus Video Withdraw</button>
+        </label>
+        <label class="upload-card">Gambar Promo 9:16
+          <input id="setImgPromo" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setImgPromo">Belum ada file</div>
+          <input class="upload-input" type="file" accept="image/*" data-upload-target="setImgPromo" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setImgPromo">Hapus Gambar Promo</button>
+        </label>
+        <label class="upload-card">Video Promo 9:16 MP4
+          <input id="setVidPromo" class="technical-url" type="hidden" />
+          <div class="upload-value" data-preview-for="setVidPromo">Belum ada file</div>
+          <input class="upload-input" type="file" accept="video/mp4,video/*" data-upload-target="setVidPromo" />
+          <button class="btn ghost clear-media" type="button" data-clear-target="setVidPromo">Hapus Video Promo</button>
+        </label>
+      </div>
+
+      <p class="muted upload-note">Upload dari galeri butuh Google Apps Script API URL. Setelah upload berhasil, klik Push ke Google Sheet.</p>
+      <p id="uploadStatus" class="pull-status"></p>
+      <p class="sync-mode-note">Mode sync permanen: kalau URL Apps Script sudah ditanam di config.js, semua device cukup buka link Cloudflare biasa dan auto pull dari Google Sheet.</p>
+      <div class="sync-share-box">
+        <button id="makeSyncLink" class="btn ghost" type="button">Buat Link Share Sinkron</button>
+        <textarea id="syncShareLink" readonly placeholder="Link share sinkron akan muncul di sini"></textarea>
+        <p class="muted">Pakai link ini untuk device baru agar langsung tahu Google Apps Script/Sheet yang dipakai.</p>
+      </div>
+      <p id="pullStatus" class="pull-status"></p>
+      <div class="modal-actions wrap">
+        <button id="saveSettings" class="btn primary" type="button">Simpan Lokal</button>
+        <button id="pullRemoteConfig" class="btn ghost" type="button">Pull Config Online</button>
+        <button id="pushGasConfig" class="btn ghost" type="button">Push ke Google Sheet</button>
+        <button id="exportConfig" class="btn ghost" type="button">Export Config</button>
+        <label class="btn ghost file-label">Import Config<input id="importConfig" type="file" accept="application/json" hidden /></label>
+        <button id="resetSettings" class="btn danger" type="button">Reset Lokal</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

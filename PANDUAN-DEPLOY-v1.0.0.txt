@@ -1,0 +1,27 @@
+PANDUAN DEPLOY SINGKAT - JAMET138 GUIDE PWA v1.0.0
+
+1. Extract ZIP jamet138-guide-pwa-v1.0.0.zip.
+2. Upload/push semua isi folder ke repository GitHub baru atau project Cloudflare Pages.
+3. Build command: kosongkan / None.
+4. Output directory: root project / kosongkan.
+5. Deploy.
+6. Setelah website online, buka halaman dan test:
+   - Install PWA muncul.
+   - Tombol © 2026 membuka akses admin.
+   - PIN default: 7788, lalu ganti dari panel admin.
+   - Video tutorial di assets/videos tetap berjalan.
+
+SETUP GOOGLE SHEET SYNC BARU:
+1. Buka Google Apps Script.
+2. Buat project baru untuk JAMET138 GUIDE.
+3. Copy isi file google-apps-script-v1.0.0.gs.
+4. Deploy sebagai Web App.
+5. Copy URL Web App /exec.
+6. Tempel URL ke config.js pada:
+   window.GAS_API_URL = "URL_APPS_SCRIPT_BARU";
+   dan di DEFAULT_CONFIG.gasApiUrl jika ingin sync otomatis permanen.
+7. Deploy ulang website.
+
+CATATAN:
+- Saat ZIP ini dibuat, gasApiUrl sengaja kosong supaya tidak nyambung ke Sheet JAMET138.
+- Jangan ubah struktur assets/videos kalau ingin video statis tetap aman.
