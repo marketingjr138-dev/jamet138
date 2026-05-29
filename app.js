@@ -110,20 +110,101 @@ function applyRemoteConfig(remote){
   if(localOverride && localOverride.__localOverride===true) config=mergeConfig(config, localOverride);
   render();
 }
+function wait(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
+
+function postJsonViaIframe(gasUrl, payload){
+  return new Promise((resolve,reject)=>{
+    try{
+      const frameName = "gas_post_frame_" + Date.now();
+      const iframe = document.createElement("iframe");
+      iframe.name = frameName;
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = gasUrl;
+      form.target = frameName;
+      form.style.display = "none";
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "payload";
+      input.value = JSON.stringify(payload);
+      form.appendChild(input);
+      document.body.appendChild(form);
+
+      let done = false;
+      const cleanup = () => {
+        try{form.remove();}catch(e){}
+        setTimeout(()=>{try{iframe.remove();}catch(e){}}, 1500);
+      };
+      iframe.onload = () => {
+        if(done) return;
+        done = true;
+        cleanup();
+        resolve({ok:true, via:"iframe"});
+      };
+      form.submit();
+      setTimeout(()=>{
+        if(done) return;
+        done = true;
+        cleanup();
+        resolve({ok:true, via:"iframe-timeout"});
+      }, 3500);
+    }catch(err){reject(err);}
+  });
+}
+
+async function postJsonToGas(gasUrl, payload){
+  try{
+    const res=await fetch(gasUrl,{
+      method:"POST",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(payload),
+      cache:"no-store",
+      redirect:"follow"
+    });
+    const text=await res.text();
+    let data={};
+    try{data=JSON.parse(text||"{}");}catch(e){data={ok:res.ok, raw:text};}
+    if(!res.ok || data.ok===false) throw new Error(data.error||("HTTP "+res.status));
+    return {...data, via:"fetch"};
+  }catch(fetchErr){
+    console.warn("Fetch POST gagal, mencoba iframe POST fallback", fetchErr);
+    return await postJsonViaIframe(gasUrl, payload);
+  }
+}
+
 async function pushConfigToGas(){
   const gasUrl=getGasApiUrl();
   if(!gasUrl){alert("Isi dulu Google Apps Script API URL."); return;}
   try{
     setPullStatus("Mengirim config ke Google Sheet...");
+    try{ saveConfig(collectSettings()); }catch(e){}
     const clean={...config}; delete clean.__localOverride;
-    const res=await fetch(gasUrl,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"saveConfig",config:clean})});
-    const payload=await res.json();
-    if(!payload.ok) throw new Error(payload.error||"Gagal simpan");
+    const result=await postJsonToGas(gasUrl,{action:"saveConfig",config:clean});
+
+    if(result.via && result.via.startsWith("iframe")){
+      setPullStatus("Config dikirim. Mengecek ulang Google Sheet...");
+      await wait(1800);
+      try{
+        const check=await fetch(`${gasUrl}?action=getConfig&v=${Date.now()}`,{cache:"no-store"});
+        const payload=await check.json();
+        if(payload && payload.ok===false) throw new Error(payload.error||"Gagal verifikasi");
+      }catch(verifyErr){
+        console.warn("Verifikasi GET gagal setelah iframe POST", verifyErr);
+      }
+    }
+
     setPullStatus("Config berhasil dikirim ke Google Sheet.");
+    alert("Config berhasil dikirim ke Google Sheet.");
     return true;
   }catch(err){
-    setPullStatus("Gagal push ke Google Sheet.");
-    alert("Gagal push ke Google Sheet. Cek URL Web App dan permission Apps Script.");
+    console.error(err);
+    const msg = err && err.message ? err.message : "Unknown error";
+    setPullStatus("Gagal push ke Google Sheet: "+msg);
+    alert("Gagal push ke Google Sheet. Detail: "+msg);
     return false;
   }
 }

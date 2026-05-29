@@ -1,0 +1,22 @@
+PANDUAN DEPLOY JAMET138 GUIDE PWA v1.0.1
+
+1. Upload semua isi ZIP ini ke repo GitHub JAMET138 Guide.
+2. Pastikan folder assets/videos tetap berisi nama file video yang sama:
+   - tutorial-daftar.mp4
+   - tutorial-deposit.mp4
+   - tutorial-transfer.mp4
+   - tutorial-withdraw.mp4
+   - tutorial-promo.mp4
+3. Deploy via Cloudflare Pages seperti biasa.
+4. Untuk Google Sheet JAMET, buka Sheet khusus JAMET > Extensions > Apps Script.
+5. Ganti script lama dengan google-apps-script-v1.0.0.gs dari ZIP ini.
+6. Run setupSheet sekali untuk authorize.
+7. Deploy > Manage deployments > Edit > Version: New version > Deploy.
+8. Copy Web App URL /exec.
+9. Masuk Admin JAMET Guide via © 2026 > tempel Apps Script URL > Simpan Lokal.
+10. Klik Push ke Google Sheet.
+
+Catatan v1.0.1:
+- Fix jalur Push Google Sheet dari PWA/mobile WebView memakai fallback iframe POST.
+- Apps Script sekarang bisa membaca POST normal JSON dan POST form fallback.
+- LOGS harus terisi saveConfig setelah Push berhasil.

@@ -31,3 +31,8 @@ Clone dari mesin final JAMET Guide v2.0.0, direbrand menjadi JAMET138 Guide tanp
 
 ## Catatan deploy
 Upload semua isi folder ini ke repository GitHub/Cloudflare Pages. Jangan upload ZIP-nya langsung sebagai file website; ekstrak dulu atau push isi project.
+
+
+## v1.0.1 Fix
+
+Patch ini memperbaiki Push ke Google Sheet pada JAMET138 Guide ketika `ping` dan `getConfig` aktif tetapi tab `LOGS` kosong. Penyebabnya biasanya POST fetch dari PWA/mobile WebView tidak sampai ke Apps Script. App sekarang memakai fallback iframe POST dan Apps Script mendukung payload form fallback.

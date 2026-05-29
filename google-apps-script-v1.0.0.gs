@@ -129,23 +129,59 @@ function doGet(e) {
 
 function doPost(e) {
   try {
-    const body = JSON.parse((e.postData && e.postData.contents) || '{}');
+    const body = parseRequestBody_(e);
     if (body.action === 'uploadFile') {
       const uploaded = uploadFileToDrive(body);
       logAction('uploadFile', 'ok', uploaded.name || 'uploaded');
-      return jsonResponse({ ok: true, file: uploaded, url: uploaded.url });
+      return jsonResponse({ ok: true, file: uploaded, url: uploaded.url, displayUrl: uploaded.displayUrl, previewUrl: uploaded.previewUrl, downloadUrl: uploaded.downloadUrl });
     }
 
     if (body.action === 'saveConfig') {
       saveConfigToSheet(body.config || {});
-      logAction('saveConfig', 'ok', 'Config updated from PWA v2.0.0');
+      logAction('saveConfig', 'ok', 'Config updated from PWA v1.0.1');
       return jsonResponse({ ok: true, message: 'Config saved' });
     }
+    logAction('doPost', 'error', 'Unknown action: ' + (body.action || 'empty'));
     return jsonResponse({ ok: false, error: 'Unknown action' });
   } catch (err) {
     logAction('doPost', 'error', String(err));
     return jsonResponse({ ok: false, error: String(err) });
   }
+}
+
+function parseRequestBody_(e) {
+  const raw = (e && e.postData && e.postData.contents) ? String(e.postData.contents) : '';
+
+  // Normal fetch POST: text/plain JSON
+  if (raw) {
+    try {
+      return JSON.parse(raw);
+    } catch (err) {}
+  }
+
+  // Browser form/iframe fallback: payload=<JSON>
+  if (e && e.parameter && e.parameter.payload) {
+    try {
+      return JSON.parse(e.parameter.payload);
+    } catch (err) {
+      throw new Error('Payload form tidak valid: ' + err);
+    }
+  }
+
+  // Simple form fallback: action=saveConfig&config=<JSON>
+  if (e && e.parameter && e.parameter.action) {
+    const body = { action: e.parameter.action };
+    if (e.parameter.config) {
+      try {
+        body.config = JSON.parse(e.parameter.config);
+      } catch (err) {
+        body.config = {};
+      }
+    }
+    return body;
+  }
+
+  return {};
 }
 
 function getConfigFromSheet() {
